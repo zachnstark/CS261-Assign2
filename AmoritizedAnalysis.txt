@@ -87,4 +87,15 @@ total cost = 200 + 60 = 260
 
 O(N) because the total cost increases to a value of roughly  N/4.
 
+3.)
+
+The following combination of pushes and pops would result in an O(N^2)
+operation
+
+for(int i = 0; i < N; i++){ // order N operations to iterate
+   push();  // order N operations to add one because the array is full
+   pop();  // order N operations to remove one because the array is half full
+}
+
+To avoid this issue, the array's shrinking policy can be removed.
 
