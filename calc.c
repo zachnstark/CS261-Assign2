@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -40,7 +41,18 @@ int isNumber(char *s, double *num)
 */
 void add (struct DynArr *stack)
 {
-	/* FIXME: You will write this function */
+	double x, y, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	y = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = x + y;
+	pushDynArr(stack, z);
 }
 
 /*	param: stack the stack being manipulated
@@ -50,7 +62,18 @@ void add (struct DynArr *stack)
 */
 void subtract(struct DynArr *stack)
 {
-	/* FIXME: You will write this function */
+	TYPE x, y, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	y = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Subtracts the two numbers then pushes it to the stack
+	z = x - y;
+	pushDynArr(stack, z);
 }
 
 /*	param: stack the stack being manipulated
@@ -60,12 +83,193 @@ void subtract(struct DynArr *stack)
 */
 void divide(struct DynArr *stack)
 {
-	/* FIXME: You will write this function */
+	TYPE x, y, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	y = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = (double) x / (double) y;
+	pushDynArr(stack, z);
+}
+
+/*	param: stack the stack being manipulated
+	pre: the stack contains at least two elements
+	post: the top two elements are popped and 
+	their product is pushed back onto the stack.
+*/
+void multiply(struct DynArr *stack)
+{
+	TYPE x, y, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	y = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = x * y;
+	pushDynArr(stack, z);
+}
+
+/*	param: stack the stack being manipulated
+	pre: the stack contains at least two elements
+	post: the top two elements are popped and 
+	their result is pushed back onto the stack.
+*/
+void power(struct DynArr *stack)
+{
+	TYPE x, y, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	y = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = pow(x, y);
+	pushDynArr(stack, z);
+}
+
+/*	param: stack the stack being manipulated
+	pre: the stack contains at least two elements
+	post: the top two elements are popped and 
+	their result is pushed back onto the stack.
+*/
+void square(struct DynArr *stack)
+{
+	TYPE x, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = x * x;
+	pushDynArr(stack, z);
+}
+
+/*	param: stack the stack being manipulated
+	pre: the stack contains at least two elements
+	post: the top two elements are popped and 
+	their result is pushed back onto the stack.
+*/
+void cube(struct DynArr *stack)
+{
+	TYPE x, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = x * x * x;
+	pushDynArr(stack, z);
+}
+
+/*	param: stack the stack being manipulated
+	pre: the stack contains at least two elements
+	post: the top two elements are popped and 
+	their result is pushed back onto the stack.
+*/
+void absolute(struct DynArr *stack)
+{
+	TYPE x, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = fabs(x);
+	pushDynArr(stack, z);
+}
+
+/*	param: stack the stack being manipulated
+	pre: the stack contains at least two elements
+	post: the top two elements are popped and 
+	their result is pushed back onto the stack.
+*/
+void square_root(struct DynArr *stack)
+{
+	TYPE x, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = sqrt(x);
+	pushDynArr(stack, z);
+}
+
+/*	param: stack the stack being manipulated
+	pre: the stack contains at least two elements
+	post: the top two elements are popped and 
+	their result is pushed back onto the stack.
+*/
+void exp(struct DynArr *stack)
+{
+	TYPE x, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = exp(x);
+	pushDynArr(stack, z);
+}
+
+/*	param: stack the stack being manipulated
+	pre: the stack contains at least two elements
+	post: the top two elements are popped and 
+	their result is pushed back onto the stack.
+*/
+void ln(struct DynArr *stack)
+{
+	TYPE x, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = log(x);
+	pushDynArr(stack, z);
+}
+
+/*	param: stack the stack being manipulated
+	pre: the stack contains at least two elements
+	post: the top two elements are popped and 
+	their result is pushed back onto the stack.
+*/
+void log(struct DynArr *stack)
+{
+	TYPE x, z;
+
+	// Sets x to the top of the stack then pops it so the process can repeat
+	x = topDynArr(stack);
+	popDynArr(stack);
+	
+	// Adds the two numbers then pushes it to the stack
+	z = log10(x);
+	pushDynArr(stack, z);
 }
 
 double calculate(int numInputTokens, char **inputString)
 {
 	int i;
+	int count = 0;
+	double *x = 0.0;
 	double result = 0.0;
 	char *s;
 	struct DynArr *stack;
@@ -73,6 +277,36 @@ double calculate(int numInputTokens, char **inputString)
 	//set up the stack
 	stack = createDynArr(20);
 
+	// Check for too many/too few numbers
+	 for (i = 0; i < numInputTokens; i++)
+	 {
+		// If its a valid number
+		if (isNumber(inputString[i], x) || !strcmp(s, "pi") || !strcmp(s, "e"))
+			count++;
+		else
+		{
+			// Checking if the operator is a binary operator
+			if (!strcmp(s, "+") || !strcmp(s,"-") || !strcmp(s,"/") || !strcmp(s,"*") || !strcmp(s,"^"))
+			{
+				// Make sure the right amount of numbers are given for the operator
+				if (count != 2)
+				{
+					printf("Invalid entered arguments. Please rerun program.");
+					exit(0);
+				}
+			}
+			// Checking if operator is unary
+			else if (!strcmp(s, "^2") || !strcmp(s, "^3") || !strcmp(s, "abs") || !strcmp(s, "sqrt") || !strcmp(s, "exp") || !strcmp(s, "ln") || !strcmp(s, "log"))
+			{
+				if (count != 1)
+				{
+					printf("Invalid entered arguments. Please rerun program.");
+					exit(0);
+				}
+			}
+		}
+	 }
+	
 	// start at 1 to skip the name of the calculator calc
 	for(i=1;i < numInputTokens;i++) 
 	{
@@ -92,44 +326,51 @@ double calculate(int numInputTokens, char **inputString)
 		else if(strcmp(s, "/") == 0)
 			divide(stack);
 		else if(strcmp(s, "x") == 0)
-			/* FIXME: replace printf with your own function */
-			printf("Multiplying\n");
+			multiply(stack);
 		else if(strcmp(s, "^") == 0)
-			/* FIXME: replace printf with your own function */
-			printf("Power\n");
+			power(stack);
 		else if(strcmp(s, "^2") == 0)
-			/* FIXME: replace printf with your own function */
-			printf("Squaring\n");
+			square(stack);
 		else if(strcmp(s, "^3") == 0)
-			/* FIXME: replace printf with your own function */
-			printf("Cubing\n");
+			cube(stack);
 		else if(strcmp(s, "abs") == 0)
-			/* FIXME: replace printf with your own function */
-			printf("Absolute value\n");
+			absolute(stack);
 		else if(strcmp(s, "sqrt") == 0)
-			/* FIXME: replace printf with your own function */
-			printf("Square root\n");
+			square_root(stack);
 		else if(strcmp(s, "exp") == 0)
-			/* FIXME: replace printf with your own function */
-			printf("Exponential\n");
+			exp(stack);
 		else if(strcmp(s, "ln") == 0)
-			/* FIXME: replace printf with your own function */
-			printf("Natural Log\n");
+			ln(stack);
 		else if(strcmp(s, "log") == 0)
-			/* FIXME: replace printf with your own function */
-			printf("Log\n");
+			log(stack);
 		else 
 		{
-			// FIXME: You need to develop the code here (when s is not an operator)
-			// Remember to deal with special values ("pi" and "e")
-			
+			if (isNumber(s, x))
+				pushDynArr(stack, x);
+			else if (strcmp(s, "pi")
+			{
+				x = 3.14159265;
+				pushDynArr(stack, x);
+			}
+			else if (strcmp(s, "e"))
+			{
+				x = 2.7182818;
+				pushDynArr(stack, x);
+			}
+			else
+			{
+				printf("Invalid entered arguments. Please rerun program.");
+				exit(0);
+			}
 		}
 	}	//end for 
 
-	/* FIXME: You will write this part of the function (2 steps below) 
-	 * (1) Check if everything looks OK and produce an error if needed.
+	/* (1) Check if everything looks OK and produce an error if needed.
 	 * (2) Store the final value in result and print it out.
 	 */
+	assert(stack->size == 1);
+	result = stack->data[0];
+	printf("Final result: %d", result);
 	
 	return result;
 }
