@@ -1,4 +1,4 @@
-//*	dynamicArray.c: Dynamic Array implementation. */
+/*	dynamicArray.c: Dynamic Array implementation. */
 
 /*
  * Kyle Nichols, Zach Stark	January 19, 2015
@@ -103,27 +103,18 @@ void deleteDynArr(DynArr *v)
 void _dynArrSetCapacity(DynArr *v, int newCap)
 {	
 	int i;
+	int temp_size = v->size;
 
-	printf("Size%d\n", v->size);
    	assert(newCap > v->size);	// Make sure that during the copying process, the size doesn't go over the new capacity
 
-	printf("Size%d NewCap%d\n", v->size, newCap);
-	DynArr *temp;
-	temp = createDynArr(newCap);
-	printf("VSize%d TempSize%d\n", v->size, temp->size);
-	temp->size = v->size;
-	printf("Size%d Capacity%d\n", temp->size, temp->capacity);
+	TYPE *temp = malloc(sizeof(TYPE) * newCap);
 	for (i = 0; i < v->size; i++)
-	   temp->data[i] = v->data[i];
+	   temp[i] = v->data[i];
 
-       	// deleteDynArr(v);
-	// free(v);
+    freeDynArr(v);
 	
-	v->data = temp->data;
-	v->size = temp->size;
-	v->capacity = temp->capacity;
-
-//	printf("Size%d Capacity%d\n", v->size, v->capacity);
+	v->data = temp;
+	v->size = temp_size;
 }
 
 /* Get the size of the dynamic array
@@ -229,8 +220,6 @@ void removeAtDynArr(DynArr *v, int idx)
 {
 	int i;
 
-	if (idx == v->size-1)	// The following loop will not work for the greatest value 
-	   v->data[i] = 0;
 	for (i = idx; i < v->size-1; i++)
 	   v->data[i] = v->data[i+1];
 
