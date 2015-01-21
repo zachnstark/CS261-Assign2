@@ -104,18 +104,19 @@ void _dynArrSetCapacity(DynArr *v, int newCap)
 {	
 	int i;
 
-//	printf("Size%d\n", v->size);
+	printf("Size%d\n", v->size);
    	assert(newCap > v->size);	// Make sure that during the copying process, the size doesn't go over the new capacity
 
-//	printf("Size%d NewCap%d\n", v->size, newCap);
-	DynArr *temp = createDynArr(newCap);
-//	printf("VSize%d TempSize%d\n", v->size, temp->size);
+	printf("Size%d NewCap%d\n", v->size, newCap);
+	DynArr *temp;
+	temp = createDynArr(newCap);
+	printf("VSize%d TempSize%d\n", v->size, temp->size);
 	temp->size = v->size;
-//	printf("Size%d Capacity%d\n", temp->size, temp->capacity);
+	printf("Size%d Capacity%d\n", temp->size, temp->capacity);
 	for (i = 0; i < v->size; i++)
 	   temp->data[i] = v->data[i];
 
-	// deleteDynArr(v);
+       	// deleteDynArr(v);
 	// free(v);
 	
 	v->data = temp->data;
@@ -193,7 +194,6 @@ TYPE getDynArr(DynArr *v, int pos)
 void putDynArr(DynArr *v, int pos, TYPE val)
 {
 	v->data[pos] = val;
-	v->size++;
 }
 
 /*	Swap two specified elements in the dynamic array
