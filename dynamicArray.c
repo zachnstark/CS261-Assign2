@@ -1,4 +1,4 @@
-/*	dynamicArray.c: Dynamic Array implementation. */
+//*	dynamicArray.c: Dynamic Array implementation. */
 
 /*
  * Kyle Nichols, Zach Stark	January 19, 2015
