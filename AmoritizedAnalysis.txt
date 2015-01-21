@@ -1,3 +1,90 @@
 Amortized Analysis of the Dynamic Array
 
+1.)
+
+capacity = 8 size = 0 grow by double
+1 capacity = 8 size = 1 cost = 1
+2 capacity = 8 size = 2 cost = 1
+3 capacity = 8 size = 3 cost = 1
+4 capacity = 8 size = 4 cost = 1
+5 capacity = 8 size = 5 cost = 1
+6 capacity = 8 size = 6 cost = 1
+7 capacity = 8 size = 7 cost = 1
+8 capacity = 8 size = 8 cost = 1
+9 capacity = 16size = 9 cost = 8 + 1 = 9
+10capacity = 16size = 10cost = 1
+11capacity = 16size = 11cost = 1
+12capacity = 16size = 12cost = 1
+13capacity = 16size = 13cost = 1
+14capacity = 16size = 14cost = 1
+15capacity = 16size = 15cost = 1
+16capacity = 16size = 16cost = 1
+
+total cost = 24
+
+17capacity = 32size = 17cost = 16 + 1 = 17
+18capacity = 32size = 18cost = 1
+19capacity = 32size = 19cost = 1
+20capacity = 32size = 20cost = 1
+21capacity = 32size = 21cost = 1
+22capacity = 32size = 22cost = 1
+23capacity = 32size = 23cost = 1
+24capacity = 32size = 24cost = 1
+25capacity = 32size = 25cost = 1
+26capacity = 32size = 26cost = 1
+27capacity = 32size = 27cost = 1
+28capacity = 32size = 28cost = 1
+29capacity = 32size = 29cost = 1
+30capacity = 32size = 30cost = 1
+31capacity = 32size = 31cost = 1
+32capacity = 32size = 32cost = 1
+
+total cost = 32 + 24 = 56
+
+O(1) because 24/16 = 1.5 and 56/32 = 1.75 so the number is remaining
+consistent.
+
+2.)
+
+capacity = 8 size = 0 grow by constant of 2 
+1 capacity = 8 size = 1 cost = 1
+2 capacity = 8 size = 2 cost = 1
+3 capacity = 8 size = 3 cost = 1
+4 capacity = 8 size = 4 cost = 1
+5 capacity = 8 size = 5 cost = 1
+6 capacity = 8 size = 6 cost = 1
+7 capacity = 8 size = 7 cost = 1
+8 capacity = 8 size = 8 cost = 1
+9 capacity = 10size = 9 cost = 8 + 1 = 9
+10capacity = 10size = 10cost = 1
+11capacity = 12size = 11cost = 10 + 1 = 11
+12capacity = 12size = 12cost = 1
+13capacity = 14size = 13cost = 12 + 1 = 13
+14capacity = 14size = 14cost = 1
+15capacity = 16size = 15cost = 14 + 1 = 15
+16capacity = 16size = 16cost = 1
+
+total cost = 60 
+
+17capacity = 18size = 17cost = 16 + 1 = 17
+18capacity = 18size = 18cost = 1
+19capacity = 20size = 19cost = 18 + 1 = 19
+20capacity = 20size = 20cost = 1
+21capacity = 22size = 21cost = 20 + 1 = 21
+22capacity = 22size = 22cost = 1
+23capacity = 24size = 23cost = 22 + 1 = 23
+24capacity = 24size = 24cost = 1
+25capacity = 26size = 25cost = 24 + 1 = 25
+26capacity = 26size = 26cost = 1
+27capacity = 28size = 27cost = 26 + 1 = 27
+28capacity = 28size = 28cost = 1
+29capacity = 30size = 29cost = 28 + 1 = 29
+30capacity = 30size = 30cost = 1
+31capacity = 32size = 31cost = 30 + 1 = 31
+32capacity = 32size = 32cost = 1
+
+total cost = 200 + 60 = 260
+
+O(N) because the total cost increases to a value of roughly  N/4.
+
 
