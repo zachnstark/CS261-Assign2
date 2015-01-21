@@ -216,7 +216,7 @@ void square_root(struct DynArr *stack)
 	post: the top two elements are popped and 
 	their result is pushed back onto the stack.
 */
-void exp(struct DynArr *stack)
+void expo(struct DynArr *stack)
 {
 	TYPE x, z;
 
@@ -252,7 +252,7 @@ void ln(struct DynArr *stack)
 	post: the top two elements are popped and 
 	their result is pushed back onto the stack.
 */
-void log(struct DynArr *stack)
+void logarithm(struct DynArr *stack)
 {
 	TYPE x, z;
 
@@ -269,10 +269,11 @@ double calculate(int numInputTokens, char **inputString)
 {
 	int i;
 	int count = 0;
-	double *x = 0.0;
-	double result = 0.0;
-	char *s;
+	double *x = 0;
+	//double result = 0.0;
+	char *s = 0;
 	struct DynArr *stack;
+	
 
 	//set up the stack
 	stack = createDynArr(20);
@@ -338,50 +339,52 @@ double calculate(int numInputTokens, char **inputString)
 		else if(strcmp(s, "sqrt") == 0)
 			square_root(stack);
 		else if(strcmp(s, "exp") == 0)
-			exp(stack);
+			expo(stack);
 		else if(strcmp(s, "ln") == 0)
 			ln(stack);
 		else if(strcmp(s, "log") == 0)
-			log(stack);
+			logarithm(stack);
 		else 
 		{
-			if (isNumber(s, x))
-				pushDynArr(stack, x);
-			else if (strcmp(s, "pi")
-			{
-				x = 3.14159265;
-				pushDynArr(stack, x);
-			}
-			else if (strcmp(s, "e"))
-			{
-				x = 2.7182818;
-				pushDynArr(stack, x);
-			}
-			else
-			{
-				printf("Invalid entered arguments. Please rerun program.");
-				exit(0);
-			}
+		   if (isNumber(s, x))
+		      pushDynArr(stack, (TYPE)*x);
+		   else if (strcmp(s, "pi"))
+		   {
+		      *x = 3.14159265;
+		      pushDynArr(stack, (TYPE)*x);
+		   }
+		   else if (strcmp(s, "e"))
+		   {
+		      *x = 2.7182818;
+		      pushDynArr(stack, (TYPE)*x);
+		   }
+		   else
+		   {
+		      printf("Invalid entered arguments. Please rerun program.");
+		      exit(0);
+		   }
 		}
 	}	//end for 
 
 	/* (1) Check if everything looks OK and produce an error if needed.
 	 * (2) Store the final value in result and print it out.
 	 */
-	assert(stack->size == 1);
-	result = stack->data[0];
-	printf("Final result: %d", result);
-	
-	return result;
+	//assert(stack->size == 1);
+	//result = stack->data[0];
+	//printf("Final result: %d", stack->data[0]);
+
+	//return result;
+	printDynArr(stack);
+	return 0.0;
 }
 
-int main(int argc , char** argv)
+int main(int argc , char* argv[])
 {
-	// assume each argument is contained in the argv array
-	// argc-1 determines the number of operands + operators
-	if (argc == 1)
-		return 0;
+   // assume each argument is contained in the argv array
+   // argc-1 determines the number of operands + operators
+   if (argc == 1)
+      return 0;
 
-	calculate(argc,argv);
-	return 0;
+   calculate(argc,argv);
+   return 0;
 }
