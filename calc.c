@@ -267,11 +267,12 @@ void logarithm(struct DynArr *stack)
 
 double calculate(int numInputTokens, char **inputString)
 {
-	int i;
+	int i = 0;
 	int count = 0;
-	double *x = 0;
+	double *x = malloc(sizeof(double));
+	*x = 0;
 	//double result = 0.0;
-	char *s = 0;
+	char *s = inputString[i];
 	struct DynArr *stack;
 	
 
@@ -370,21 +371,16 @@ double calculate(int numInputTokens, char **inputString)
 	 * (2) Store the final value in result and print it out.
 	 */
 	//assert(stack->size == 1);
-	//result = stack->data[0];
-	//printf("Final result: %d", stack->data[0]);
-
-	//return result;
-	printDynArr(stack);
-	return 0.0;
+	return (double) topDynArr(stack); 
 }
 
 int main(int argc , char* argv[])
 {
    // assume each argument is contained in the argv array
    // argc-1 determines the number of operands + operators
-   if (argc == 1)
+   if (argc == 1){
       return 0;
-
+   }
    calculate(argc,argv);
    return 0;
 }

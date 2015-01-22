@@ -33,7 +33,6 @@ int isEmptyDynArr(DynArr *v);
 void pushDynArr(DynArr *v, TYPE val);
 TYPE topDynArr(DynArr *v);
 void popDynArr(DynArr *v);
-void printDynArr(DynArr *v);
 
 /* Bag Interface */
 int containsDynArr(DynArr *v, TYPE val);
