@@ -143,16 +143,12 @@ void addDynArr(DynArr *v, TYPE val)
    	// Resize the array if necessary
 	if (v->size == v->capacity)
 	{
-//	   printf("Size%d Capacity%d\n", v->size, v->capacity);
 	   _dynArrSetCapacity(v, (v->capacity*2));
-//	   printf("Size%d Capacity%d\n", v->size, v->capacity);
 	}
 
 
 	v->data[v->size] = val;
 	v->size++;
-
-	printf("%f %d\n", v->data[v->size-1], v->size);
 }
 
 /*	Get an element from the dynamic array from a specified position

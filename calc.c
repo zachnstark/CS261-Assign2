@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -271,7 +272,7 @@ double calculate(int numInputTokens, char **inputString)
 	int count = 0;
 	double *x = malloc(sizeof(double));
 	*x = 0;
-	//double result = 0.0;
+	double result = 0.0;
 	char *s = inputString[i];
 	struct DynArr *stack;
 	
@@ -288,21 +289,21 @@ double calculate(int numInputTokens, char **inputString)
 		else
 		{
 			// Checking if the operator is a binary operator
-			if (!strcmp(s, "+") || !strcmp(s,"-") || !strcmp(s,"/") || !strcmp(s,"*") || !strcmp(s,"^"))
+			if (!strcmp(s, "+") && !strcmp(s,"-") && !strcmp(s,"/") && !strcmp(s,"*") && !strcmp(s,"^"))
 			{
 				// Make sure the right amount of numbers are given for the operator
 				if (count != 2)
 				{
-					printf("Invalid entered arguments. Please rerun program.");
+					printf("Invalid entered arguments. Please rerun program.\n");
 					exit(0);
 				}
 			}
 			// Checking if operator is unary
-			else if (!strcmp(s, "^2") || !strcmp(s, "^3") || !strcmp(s, "abs") || !strcmp(s, "sqrt") || !strcmp(s, "exp") || !strcmp(s, "ln") || !strcmp(s, "log"))
+			else if (!strcmp(s, "^2") && !strcmp(s, "^3") && !strcmp(s, "abs") && !strcmp(s, "sqrt") && !strcmp(s, "exp") && !strcmp(s, "ln") && !strcmp(s, "log"))
 			{
 				if (count != 1)
 				{
-					printf("Invalid entered arguments. Please rerun program.");
+					printf("Invalid entered arguments. Please rerun program.\n");
 					exit(0);
 				}
 			}
@@ -361,7 +362,7 @@ double calculate(int numInputTokens, char **inputString)
 		   }
 		   else
 		   {
-		      printf("Invalid entered arguments. Please rerun program.");
+		      printf("Invalid entered arguments. Please rerun program.\n");
 		      exit(0);
 		   }
 		}
@@ -370,8 +371,13 @@ double calculate(int numInputTokens, char **inputString)
 	/* (1) Check if everything looks OK and produce an error if needed.
 	 * (2) Store the final value in result and print it out.
 	 */
-	//assert(stack->size == 1);
-	return (double) topDynArr(stack); 
+	if (sizeDynArr(stack) == 1)
+		result = (double) topDynArr(stack);
+	else
+		printf("There was an error in calculation, result will be 0.0\n");
+	printf("The result is: %.2f\n", result);
+	
+	return result; 
 }
 
 int main(int argc , char* argv[])
