@@ -41,7 +41,7 @@ total cost = 24
 
 total cost = 32 + 24 = 56
 
-O(1) because 24/16 = 1.5 and 56/32 = 1.75 so the number is remaining
+O(1+) because 24/16 = 1.5 and 56/32 = 1.75 so the number is remaining
 consistent.
 
 2.)
@@ -85,7 +85,8 @@ total cost = 60
 
 total cost = 200 + 60 = 260
 
-O(N) because the total cost increases to a value of roughly  N/4.
+O(N^2) because for every 2 additions, there are N more operations that
+must take place in order to copy the filled array into another one.
 
 3.)
 
@@ -98,4 +99,3 @@ for(int i = 0; i < N; i++){ // order N operations to iterate
 }
 
 To avoid this issue, the array's shrinking policy can be removed.
-

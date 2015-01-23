@@ -73,7 +73,7 @@ void subtract(struct DynArr *stack)
 	popDynArr(stack);
 	
 	// Subtracts the two numbers then pushes it to the stack
-	z = x - y;
+	z = y - x;
 	pushDynArr(stack, z);
 }
 
@@ -94,7 +94,7 @@ void divide(struct DynArr *stack)
 	popDynArr(stack);
 	
 	// Adds the two numbers then pushes it to the stack
-	z = (double) x / (double) y;
+	z = (double) y / (double) x; 
 	pushDynArr(stack, z);
 }
 
@@ -350,14 +350,14 @@ double calculate(int numInputTokens, char **inputString)
 		{
 		   if (isNumber(s, x))
 		      pushDynArr(stack, (TYPE)*x);
-		   else if (strcmp(s, "pi"))
+		   else if (strcmp(s, "pi") == 0)
 		   {
-		      *x = 3.14159265;
+		      *x = 3.14159;
 		      pushDynArr(stack, (TYPE)*x);
 		   }
-		   else if (strcmp(s, "e"))
+		   else if (strcmp(s, "e") == 0)
 		   {
-		      *x = 2.7182818;
+		      *x = 2.7182;
 		      pushDynArr(stack, (TYPE)*x);
 		   }
 		   else
