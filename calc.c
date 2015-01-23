@@ -1,3 +1,9 @@
+/*
+ * Zachary Stark Kyle Nichols   1/22/2015
+ * Assignment 2
+ * VIM
+ */
+
 #include <assert.h>
 #include <math.h>
 #include <stdlib.h>
@@ -265,6 +271,15 @@ void logarithm(struct DynArr *stack)
 	z = log10(x);
 	pushDynArr(stack, z);
 }
+
+/*Function takes in the command line arguments and puts them in a stack
+ * in order to systematically go through all of the numbers and operands
+ * to come up with a correct calculation and the returns the end result.
+ * There are error messages returned if the number of operands and numbers
+ * dont match up correctly.
+ * Preconditions the command lind inputs are numbes and numInputTokens > 0
+ * PostConditions the result is a number and the stack is empty
+ */
 
 double calculate(int numInputTokens, char **inputString)
 {

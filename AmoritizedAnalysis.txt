@@ -1,3 +1,6 @@
+Zachary Stark
+Kyle Nichols
+
 Amortized Analysis of the Dynamic Array
 
 1.)
